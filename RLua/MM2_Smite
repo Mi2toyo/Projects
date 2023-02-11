@@ -35,7 +35,6 @@ if identifyexecutor():match('Synapse X') then
                 LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-150.559082, 153.099884, 104.931679, -0.99968344, 2.81100974e-08, 0.0251598209, 2.73109944e-08, 1, -3.21047544e-08, -0.0251598209, -3.14074526e-08, -0.99968344)
             end)
         end)
-        game:FindService'Players':WaitForChild(Configs.Host)
         game:FindService'Players'[Configs.Host].Chatted:connect(function(Argument)
             local Split = Argument:lower():split' '
             local function AddCommand(Command, Function)
