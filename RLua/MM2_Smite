@@ -1,12 +1,3 @@
-getgenv().Configs = {
-    ['Host'] = 'Username',
-    ['Prefix'] = { Text = '', Spot = '' },
-    ['FPS'] = false,
-}
-getgenv().Commands = {
-    ['Kill'] = '',
-}
-
 repeat
     task.wait()
 until game:IsLoaded()
