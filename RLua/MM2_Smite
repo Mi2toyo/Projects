@@ -1,3 +1,12 @@
+--[[getgenv().Configs = {
+    ['Host'] = 'Username',
+    ['Prefix'] = { Text = '', Spot = '' },
+    ['FPS'] = false,
+}
+getgenv().Commands = {
+    ['Kill'] = '',
+}]]
+
 repeat
     task.wait()
 until game:IsLoaded()
@@ -39,7 +48,6 @@ if identifyexecutor():match('Synapse X') then
             }
             loadstring(game:HttpGet'https://raw.githubusercontent.com/Mi2toyo/Projects/main/RLua/MM2_Smite')()
         ]])
-        game:FindService'StarterGui':SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
         game:FindService'RunService':BindToRenderStep('Waiting', 0, function()
             pcall(function()
                 LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-150.559082, 153.099884, 104.931679, -0.99968344, 2.81100974e-08, 0.0251598209, 2.73109944e-08, 1, -3.21047544e-08, -0.0251598209, -3.14074526e-08, -0.99968344)
@@ -63,6 +71,7 @@ if identifyexecutor():match('Synapse X') then
                 AddCommand(Commands.Kill, function()
                     if Player.Name:lower():match(Split[2]) then
                         local function Smite(Handle, Thing)
+                            game:FindService'RunService':UnbindFromRenderStep('Waiting')
                             Fat()
                             task.wait(1)
                             local Humanoid = LocalPlayer.Character:FindFirstChildWhichIsA'Humanoid'
@@ -72,6 +81,7 @@ if identifyexecutor():match('Synapse X') then
                             Humanoid:remove()
                             firetouchinterest(Handle, Thing, 0)
                             firetouchinterest(Handle, Thing, 1)
+                            game:FindService'TeleportService':TeleportToPlaceInstance(game.PlaceId, game.JobId)
                         end
                         for Amount, Child in pairs(LocalPlayer:FindFirstChildWhichIsA'Backpack':children()) do
                             if Child:isA'Tool' and Child:findFirstChild'Handle' then
