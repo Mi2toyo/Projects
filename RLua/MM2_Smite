@@ -32,7 +32,7 @@ if identifyexecutor():match('Synapse X') then
             getgenv().Configs = {
                 ['Host'] = ']]..Configs.Host..[[',
                 ['Prefix'] = { Text = ']]..Configs.Prefix.Text..[[', Spot = ']]..Configs.Prefix.Spot..[[' },
-                ['FPS'] = ]]..Configs.FPS..[[,
+                ['FPS'] = ]]..tostring(Configs.FPS)..[[,
             }
             getgenv().Commands = {
                 ['Kill'] = ']]..Commands.Kill..[[',
