@@ -72,7 +72,6 @@ if identifyexecutor():match('Synapse X') then
                             Humanoid:remove()
                             firetouchinterest(Handle, Thing, 0)
                             firetouchinterest(Handle, Thing, 1)
-                            game:FindService'TeleportService':TeleportToPlaceInstance(game.PlaceId, game.JobId)
                         end
                         for Amount, Child in pairs(LocalPlayer:FindFirstChildWhichIsA'Backpack':children()) do
                             if Child:isA'Tool' and Child:findFirstChild'Handle' then
