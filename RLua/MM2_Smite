@@ -28,7 +28,17 @@ if identifyexecutor():match('Synapse X') then
         if Configs.FPS and tonumber(Configs.FPS) then
             setfpscap(Configs.FPS)
         end
-        syn.queue_on_teleport("loadstring(game:HttpGet'https://raw.githubusercontent.com/Mi2toyo/Projects/main/RLua/MM2_Smite')()")
+        syn.queue_on_teleport([[
+            getgenv().Configs = {
+                ['Host'] = ']]..Configs.Host..[[',
+                ['Prefix'] = { Text = ']]..Configs.Prefix.Text..[[', Spot = ']]..Configs.Prefix.Spot..[[' },
+                ['FPS'] = ]]..Configs.FPS..[[,
+            }
+            getgenv().Commands = {
+                ['Kill'] = ']]..Commands.Kill..[[',
+            }
+            loadstring(game:HttpGet'https://raw.githubusercontent.com/Mi2toyo/Projects/main/RLua/MM2_Smite')()
+        ]])
         game:FindService'StarterGui':SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
         game:FindService'RunService':BindToRenderStep('Waiting', 0, function()
             pcall(function()
