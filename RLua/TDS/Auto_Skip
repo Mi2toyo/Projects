@@ -8,4 +8,4 @@ if game.PlaceId == 5591597781 then
 end
 
 --// Loop
-syn.queue_on_teleport""
+syn.queue_on_teleport"loadstring(game:HttpGet'https://raw.githubusercontent.com/Mi2toyo/Projects/main/RLua/TDS/Auto_Skip')()"
