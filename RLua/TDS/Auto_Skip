@@ -1,0 +1,11 @@
+if game.PlaceId == 5591597781 then
+    local Auto_Skip = game:FindService'ReplicatedStorage'.State.Voting.Enabled
+    Auto_Skip:GetPropertyChangedSignal'Value':connect(function()
+        if Auto_Skip.Value then
+            game:FindService'ReplicatedStorage'.RemoteEvent:FireServer('Waves','Skip')
+        end
+    end)
+end
+
+--// Loop
+syn.queue_on_teleport""
