@@ -1,8 +1,8 @@
 --// Hi, what are you doing here
 --[[
 getgenv().Settings = {
-    ['Mode'] = 'swagmode', --[ Faded / Swagmode ]
-    ['Type'] = 'premium'
+    ['Mode'] = '', --[ Faded / Swagmode ]
+    ['Type'] = ''
 }
 ]]
 
