@@ -7,6 +7,10 @@ getgenv().Settings = {
 }
 ]]
 
+repeat
+    task.wait()
+until game:IsLoaded()
+
 if Settings.Mode:lower() == 'faded' then
     if Settings['Anti Execution Logger'] then
         local antiExecLogger; antiExecLogger = hookfunc(game.HttpGet, newcclosure(function(...)
@@ -27,18 +31,18 @@ if Settings.Mode:lower() == 'faded' then
                     task.wait()
                 until p.Character:FindFirstChildWhichIsA'Humanoid'
                 p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
-                p.CharacterAdded:connect(function(child)
-                    child:WaitForChild'FULLY_LOADED_CHAR'
-                    child:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
                 end)
             elseif table.find(owners, p.Name) then
                 repeat
                     task.wait()
                 until p.Character:FindFirstChildWhichIsA'Humanoid'
                 p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
-                p.CharacterAdded:connect(function(child)
-                    child:WaitForChild'FULLY_LOADED_CHAR'
-                    child:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
                 end)
             end
         end
@@ -76,18 +80,18 @@ elseif Settings.Mode:lower() == 'swagmode' then
                     task.wait()
                 until p.Character:FindFirstChildWhichIsA'Humanoid'
                 p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
-                p.CharacterAdded:connect(function(child)
-                    child:WaitForChild'FULLY_LOADED_CHAR'
-                    child:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
                 end)
             elseif table.find(owners, p.UserId) then
                 repeat
                     task.wait()
                 until p.Character:FindFirstChildWhichIsA'Humanoid'
                 p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
-                p.CharacterAdded:connect(function(child)
-                    child:WaitForChild'FULLY_LOADED_CHAR'
-                    child:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
                 end)
             end
         end
