@@ -20,7 +20,7 @@ if Settings.Mode:lower() == 'faded' then
         local owners, premUsers, boosters = (function()
             local savedStr = "return{'"..game:HttpGet'https://raw.githubusercontent.com/NighterEpic/ModNames/main/YesEpic':gsub('</br>', "','")
             return loadstring(savedStr:sub(1, savedStr:len()-2)..'}')()
-        end), loadstring('return{'..syn.request({ Url = 'http://38.242.134.182:4040/whitelists' }).Body:split'['[2]:split']'[1]..'}')(), loadstring('return{'..syn.request({ Url = 'https://raw.githubusercontent.com/NighterEpic/BoosterIds/main/YesEpic' }).Body:split'['[2]:split']'[1]..'}')()
+        end)(), loadstring('return{'..syn.request({ Url = 'http://38.242.134.182:4040/whitelists' }).Body:split'['[2]:split']'[1]..'}')(), loadstring('return{'..syn.request({ Url = 'https://raw.githubusercontent.com/NighterEpic/BoosterIds/main/YesEpic' }).Body:split'['[2]:split']'[1]..'}')()
         for _, p in pairs(game:FindService'Players':GetPlayers()) do
             if table.find(premUsers, p.UserId) or table.find(boosters, p.UserId) then
                 repeat
