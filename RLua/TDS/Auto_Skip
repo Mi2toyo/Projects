@@ -3,10 +3,9 @@ repeat
 until game:IsLoaded()
 
 if game.PlaceId == 5591597781 then
-    local Auto_Skip = game:FindService'ReplicatedStorage'.State.Voting.Enabled
-    Auto_Skip:GetPropertyChangedSignal'Value':connect(function()
-        if Auto_Skip.Value then
-            game:FindService'ReplicatedStorage'.RemoteEvent:FireServer('Waves','Skip')
+    game:FindService'ReplicatedStorage'.State.Voting.Enabled:GetPropertyChangedSignal'Value':connect(function(val)
+        if val then
+            game:FindService'ReplicatedStorage'.RemoteEvent:FireServer('Waves', 'Skip')
         end
     end)
 end
