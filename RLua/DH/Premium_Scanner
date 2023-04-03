@@ -1,4 +1,4 @@
---// Hi, ik what are you doing here
+--// Hi, what are you doing here
 --[[
 getgenv().Settings = {
     ['Mode'] = 'swagmode', --[ Faded / Swagmode ]
