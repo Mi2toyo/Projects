@@ -16,19 +16,16 @@ if Settings.Mode:lower() == 'faded' then
             return antiExecLogger(...)
         end))
     end
-    if Settings['Anti Premium'] then
-        coroutine.wrap(function()
-            game:FindService'CoreGui':WaitForChild'F'
-            for i, c in pairs(getconnections(game:FindService'Players'.localPlayer.PlayerGui.BubbleChat.ChildAdded)) do
-                if i == 2 then
-                    c:Disable()
-                end
-            end
-        end)()
-    end
     task.wait(.1)
     do
         loadstring(game:HttpGet('https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic', true))()
+    end
+    if Settings['Anti Premium'] then
+        for i, c in pairs(getconnections(game:FindService'Players'.localPlayer.PlayerGui.BubbleChat.ChildAdded)) do
+            if i ~= 2 then
+                c:Disable()
+            end
+        end
     end
 elseif Settings.Mode:lower() == 'swagmode' then
     if Settings['Anti Execution Logger'] then
@@ -39,32 +36,32 @@ elseif Settings.Mode:lower() == 'swagmode' then
             return antiExecLogger(...)
         end))
     end
+    task.wait(.1)
+    do
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002')()
+    end
     if Settings['Anti Premium'] then
         coroutine.wrap(function()
-            game:FindService'CoreGui':WaitForChild'SwagmodeV002'
             local owners, premUsers = loadstring(game:HttpGet'https://raw.githubusercontent.com/swagmode/swagmode/main/swagdif')(), loadstring('return{'..game:HttpGet'https://raw.githubusercontent.com/swagmode/swagmode/main/swagmain':split'ModIDS = {'[2]:split'}'[1]..'}')()
             for _, p in pairs(game:FindService'Players':GetPlayers()) do
-                if table.find(owners, p.Name) or table.find(premUsers, p.UserId) then
-                    for _, c in pairs(getconnections(p.Chatted)) do
-                        c:Disable()
+                if table.find(owners, p.UserId) or table.find(premUsers, p.UserId) then
+                    for i, c in pairs(getconnections(p.Chatted)) do
+                        if i ~= 1 then
+                            c:Disable()
+                        end
                     end
                 end
             end
             game:FindService'Players'.PlayerAdded:connect(function(p)
-                repeat
-                    task.wait()
-                until p.Character:findFirstChild'FULLY_LOADED_CHAR'
                 if table.find(owners, p.Name) or table.find(premUsers, p.UserId) then
-                    for _, c in pairs(getconnections(p.Chatted)) do
-                        c:Disable()
+                    for i, c in pairs(getconnections(p.Chatted)) do
+                        if i ~= 1 then
+                            c:Disable()
+                        end
                     end
                 end
             end)
         end)()
-    end
-    task.wait(.1)
-    do
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002')()
     end
 else
     game:FindService'Players'.localPlayer:kick'Invalid mode.'
