@@ -1,0 +1,44 @@
+--// Should be obfuscated, but this method is shitty and not mine i just added a detection for it so it won't fling people when you touch their ass
+
+local toggled = true
+local function gUser()
+    return game:FindService'Players'.localPlayer
+end
+local function gRoot()
+    return gUser().Character.HumanoidRootPart
+end
+local function gVelo()
+    return gRoot().Velocity
+end
+
+while task.wait() do
+    coroutine.wrap(function()
+        if toggled then
+            pcall(function()
+                local savedVelo = gVelo()
+                gRoot().Velocity = Vector3.new(10000, 10000, 10000)
+                game:FindService'RunService'.RenderStepped:wait()
+                gRoot().Velocity = savedVelo
+            end)
+        end
+    end)()
+    pcall(function()
+        for _, p in pairs(game:FindService'Players':GetPlayers()) do
+            if p:DistanceFromCharacter(gUser().Character.UpperTorso.Position) <= 5 and p.Name ~= gUser().Name then
+                if p.Character.BodyEffects['Attacking'].Value then
+                    for _, a in pairs(p.Character:FindFirstChildWhichIsA'Humanoid':GetPlayingAnimationTracks()) do
+                        if a.Animation.AnimationId == 'rbxassetid://2788292075' or a.Animation.AnimationId == 'rbxassetid://3172948973' or a.Animation.AnimationId == 'rbxassetid://3033717454' or a.Animation.AnimationId == 'rbxassetid://3493406987' or a.Animation.AnimationId == 'rbxassetid://5341755581' or a.Animation.AnimationId == 'rbxassetid://7009919364' then
+                            toggled = true
+                        end
+                    end
+                elseif p.Character.BodyEffects['GunFiring'].Value then
+                    toggled = true
+                else
+                    toggled = false
+                end
+            elseif p:DistanceFromCharacter(gChar().UpperTorso.Position) > 5 and p.Name ~= gUser().Name then
+                toggled = true
+            end
+        end
+    end)
+end
