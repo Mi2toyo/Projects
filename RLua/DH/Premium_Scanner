@@ -28,14 +28,14 @@ if Settings.Mode:lower() == 'faded' then
         game:FindService'Players'.localPlayer:kick'Invalid type.'
     end
 elseif Settings.Mode:lower() == 'swagmode' then
-    if Settings.Type == 'premium' then
+    if Settings.Type:lower() == 'premium' then
         local premUsers = loadstring('return{'..game:HttpGet'https://raw.githubusercontent.com/swagmode/swagmode/main/swagmain':split'ModIDS = {'[2]:split'}'[1]..'}')()
         for _, p in pairs(game:FindService'Players':GetPlayers()) do
             if table.find(premUsers, p.UserId) then
                 game:FindService'StarterGui':SetCore('SendNotification', { Title = 'Checker', Text = 'Premium User: '..p.Name })
             end
         end
-    elseif Settings.Type == 'owner' then
+    elseif Settings.Type:lower() == 'owner' then
         local owners = loadstring(game:HttpGet'https://raw.githubusercontent.com/swagmode/swagmode/main/swagdif')()
         for _, p in pairs(game:FindService'Players':GetPlayers()) do
             if table.find(owners, p.UserId) then
