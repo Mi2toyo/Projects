@@ -1,0 +1,10 @@
+local _game = getrawmetatable(game)
+setreadonly(_game, false)
+local ___namecall = _game.__namecall
+_game.__namecall = newcclosure(function(...)
+    if getnamecallmethod() == 'FireServer' and ({...})[1].Name == 'MainEvent' and table.find({"BreathingHAMON", "OneMoreTime", "BANREMOTE", "PERMAIDBAN", "KICKREMOTE", "BR_KICKPC", "BR_KICKMOBILE", "CHECKER_1", "TeleportDetect", "GUI_CHECK"}, ({...})[2]) then
+        return
+    end
+    return ___namecall(...)
+end)
+setreadonly(_game, true)
