@@ -1,0 +1,67 @@
+--[[
+    Execute this script below if you don't want to get banned/warned ( Made by Anthony and TOTALLY NOT MINE )
+    loadstring(game:HttpGet'https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua')()
+]]
+
+local bypassed = {
+    --// You can add more if you know a bit of lua and have the bypassed word/sentence(s) or you can direct message me in discord ( Mitutoyo#2055 )
+    --// ( you can use this without using a executor too just copy the value and paste it in chat )
+    --// Bypassed words \\--
+        ['sex'] = 's⁥⁥⁥⁥⁥⁥ех',
+        ['rape'] = 'rаре',
+        ['cum'] = 'с⁥⁥⁥⁥um',
+        ['masturbate'] = 'МАЅТURВАТЕ',
+        ['kys'] = 'К⁥⁥⁥⁥⁥YЅ',
+        ['piss'] = 'РӀЅЅ'
+        ['cock'] = 'сосk',
+        ['ass'] = 'а⁥⁥⁥⁥ѕѕ',
+        ['asshole'] = 'аѕѕһоlе',
+        ['cunt'] = 'СU⁥⁥⁥NТ',
+        ['boobs'] = 'Вoobs',
+        ['boob'] = 'Вoob',
+        ['butthole'] = 'ВUТТ⁥⁥⁥⁥НOLЕ',
+        ['titties'] = 'ТITTIЕS',
+        ['nigger'] = 'niġġer', --// 𐌜 n𐌜𐌜 𐌜 і𐌜 g𐌜 g𐌜 е𐌜 r
+        ['nigga'] = 'п⁥iɡ⁥ɡ⁥а',
+        ['bitch'] = 'ВI⁥⁥⁥⁥⁥⁥TСН',
+        ['bitches'] = 'ВIT⁥⁥⁥⁥⁥⁥⁥СНEЅ',
+        ['fat ass'] = 'FАТ А⁥ЅЅ',
+        ['hoe'] = 'һое',
+        ['porn'] = 'рогn',
+        ['shit'] = 'ЅНIТ',
+        ['penis'] = 'реп⁥is',
+        ['big black cock'] = 'big black со⁥⁥⁥сk',
+    --// Bypassed sentences \\--
+        ['suck my cock'] = 'SU⁥⁥⁥⁥СK МY СОCK',
+        ['lets have sex'] = 'LЕТЅ НАVЕ ЅЕХ',
+        ['i eat pussy'] = 'Ӏ ЕАТ РUЅЅҮ',
+        ['cum on my face'] = 'СUМ ON МY FАСЕ',
+        ['can i piss on you?'] = 'С⁥⁥⁥⁥⁥АN І Р⁥⁥⁥⁥ІЅЅ ON YOU?',
+        ['i have a massive cock'] = 'I НАVЕ А MASSIVE СОCK',
+        ["help! there's a cock in my ass"] = "HЕLP! THЕRЕ'S А С⁥О⁥C⁥K IN МY А⁥ЅЅ",
+        ['put your cock in my ass'] = 'РUТ YО⁥UR С⁥О⁥C⁥K IN МY А⁥ЅЅ',
+        ['let me squish those titties'] = ' LЕТ MЕ SQUISН THOSE ТITTIЕS',
+        ['can i piss inside your butthole?'] = 'С⁥⁥⁥⁥⁥АN І Р⁥⁥⁥⁥ІЅЅ ІNЅIDE YOU⁥⁥⁥R В⁥⁥⁥U⁥⁥⁥⁥ТТ⁥⁥⁥⁥НOLЕ?',
+        ['cut yourself'] = 'сut yоur⁥sеlf',
+        ['can i see those cute boobs of yours'] = 'can i see those cute bо⁥оbѕ of yours',
+        ['kys bitch'] = 'К⁥⁥⁥⁥⁥YЅ ВI⁥⁥⁥⁥⁥⁥TСН',
+        ['iloveboobs'] = 'ilovebо⁥оbѕ'
+}
+
+do --// Main script
+    local _game = getrawmetatable(game)
+    setreadonly(_game, false)
+    local ___namecall = _game.__namecall
+    _game.__namecall = newcclosure(function(...)
+        if getnamecallmethod() == 'FireServer' and ({...})[1].Name == 'SayMessageRequest' and not checkcaller() then
+            for i, val in pairs(bypassed) do
+                if ({...})[2]:lower() == i then
+                    game:FindService'ReplicatedStorage'.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(val, 'All')
+                    return
+                end
+            end
+        end
+        return ___namecall(...)
+    end)
+    setreadonly(_game, true)
+end
