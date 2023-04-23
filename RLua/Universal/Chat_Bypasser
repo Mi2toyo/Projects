@@ -10,6 +10,8 @@ until game:IsLoaded()
 local bypassed = {
     --// You can add more if you know a bit of lua and have the bypassed word/sentence(s) or you can direct message me in discord ( Mitutoyo#2055 )
     --// ( you can use this without using a executor too just copy the value and paste it in chat )
+    
+    --// Credit to vadrifts for these words though UwU .gg/vadriftsx
     --// Bypassed words \\--
         ['sex'] = 's⁥⁥⁥⁥⁥⁥ех',
         ['rape'] = 'rаре',
