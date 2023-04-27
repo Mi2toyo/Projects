@@ -1,3 +1,3 @@
-hookfunc(require(game:GetService("Players").THANHPRO3333.PlayerScripts.ProjectilesClient.WeaponScript.RecoilModule).applyRecoil, function()
+hookfunc(require(game:FindService'Players'.localPlayer.PlayerScripts.ProjectilesClient.WeaponScript.RecoilModule).applyRecoil, function()
     return
 end)
