@@ -1,0 +1,4 @@
+--// Not my method
+getgenv().Username = '' --// Account to give the godmode.
+
+game:FindService'Players'[Username].Character.LeftUpperLeg.Position = Vector3.new(100, -1200, 100)
