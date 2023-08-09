@@ -1,7 +1,4 @@
 -- getgenv().Anti_Reset_Bypasser = true
---[[
-    Basically prevents you from losing your guns when resetting below 90% health
-]]
 
 local _game = getrawmetatable(game)
 setreadonly(_game, false)
