@@ -1,10 +1,10 @@
-repeat
+--[[repeat
     task.wait()
 until game:IsLoaded()
 local function findService(service)
     return game:FindService(service)
 end
-findService'Players'.localPlayer.Character:WaitForChild'FULLY_LOADED_CHAR'
+findService'Players'.localPlayer.Character:WaitForChild'FULLY_LOADED_CHAR']]
 
 while getgenv().Bring_Kick do
     local success, error = pcall(function()
