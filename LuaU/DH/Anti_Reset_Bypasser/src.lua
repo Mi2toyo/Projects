@@ -1,5 +1,3 @@
--- getgenv().Anti_Reset_Bypasser = true
-
 repeat
     task.wait()
 until game:IsLoaded()
