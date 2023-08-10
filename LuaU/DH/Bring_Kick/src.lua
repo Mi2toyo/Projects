@@ -12,7 +12,7 @@ while getgenv().Bring_Kick do
             findService'Players'.localPlayer.Character.BodyEffects.Grabbed.Value.LeftUpperLeg.Postion = Vector3.new(100, -1200, 100)
             repeat
                 task.wait()
-            until findService'Players'.localPlayer.Character.BodyEffects.Grabbed.Value == nil
+            until not findService'Players'.localPlayer.Character.BodyEffects.Grabbed.Value
         end
     end)
     task.wait()
