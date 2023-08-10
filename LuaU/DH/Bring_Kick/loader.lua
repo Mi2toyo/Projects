@@ -1,2 +1,2 @@
 getgenv().Bring_Kick = true
-loadstring()
+loadstring(game:HttpGet'https://raw.githubusercontent.com/Mi2toyo/Projects/main/LuaU/DH/Bring_Kick/src.lua')()
