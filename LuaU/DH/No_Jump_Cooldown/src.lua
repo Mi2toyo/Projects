@@ -11,7 +11,7 @@ for _, connection in pairs(getconnections(findService'Players'.localPlayer.Chara
         if getgenv().No_Jump_Cooldown then
             connection:Disable()
         else
-            connection:Disable()
+            connection:Enable()
         end
     end
 end
