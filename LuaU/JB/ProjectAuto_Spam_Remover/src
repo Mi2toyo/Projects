@@ -1,0 +1,14 @@
+do
+	local msgs = {
+		'epic auto rob',
+		'#1 autorob - dsc.projectauto.xyz',
+		'script by pxsta and snipehype',
+		'only cool people are in .gg/projectauto',
+	}
+	local antiSpam; antiSpam = hookfunction(game:FindService'ReplicatedStorage'.DefaultChatSystemChatEvents.SayMessageRequest.FireServer, newcclosure(function(...)
+		if table.find(msgs, ({...})[2]) then
+			return
+		end
+		return antiSpam(...)
+	end))
+end
