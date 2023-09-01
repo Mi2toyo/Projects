@@ -1,1 +1,2 @@
+--// Removes the spam in free version of Project Auto
 loadstring(game:HttpGet'https://raw.githubusercontent.com/Mi2toyo/Projects/main/LuaU/JB/ProjectAuto_Spam_Remover/src')()
