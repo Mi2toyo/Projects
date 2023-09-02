@@ -1,0 +1,5 @@
+for _, connection in pairs(getconnections(findService'Players'.localPlayer.Character:FindFirstChildWhichIsA'Humanoid'.Jumping)) do
+    if getinfo(connection).name == '' then
+        connection:Disable()
+    end
+end
