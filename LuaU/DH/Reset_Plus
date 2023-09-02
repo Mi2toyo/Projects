@@ -1,0 +1,25 @@
+local function findService(service)
+    return game:FindService(service)
+end
+local _; _ = hookmetamethod(game, '__namecall', newcclosure(function(...)
+    if getnamecallmethod() == 'FireServer' and ({...})[1].Name == 'MainEvent' and ({...})[2] == 'ResetNew' then
+        return
+    end
+    return _(...)
+end))
+local resetBindable = findService'StarterGui':FindFirstChildWhichIsA'BindableEvent'
+if resetBindable == nil then
+    resetBindable = Instance.new('BindableEvent', findService'StarterGui')
+    resetBindable.Event:connect(function()
+        findService'Players'.localPlayer.Character:FindFirstChildWhichIsA'Humanoid':ChangeState'Dead'
+    end)
+else
+    resetBindable.Event:connect(function()
+        findService'Players'.localPlayer.Character:FindFirstChildWhichIsA'Humanoid':ChangeState'Dead'
+    end)
+end
+while task.wait() do
+    pcall(function()
+        findService'StarterGui':SetCore('ResetButtonCallback', resetBindable)
+    end)
+end
